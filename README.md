@@ -1,8 +1,8 @@
 # EquipoProgra
 repositorio para trabajo del curso de programacion
-# integrantes
+## integrantes
 alexis david chama lino
-karol jesus ramirez cruz
+Karol Jesús Ramirez Cruz
 axel perez montero
 fredy huesca renteria
 Rodrigo guerrero osorio
