@@ -1,9 +1,9 @@
 # TEAM PADRINOS
 #
-# ESTE CÓDIGO REALIZA CÁLCULOS DE INTEGRALES DEFINIDAS E INDEFINIDAS
-# USANDO LA LIBRERÍA SYMPY PARA MATEMÁTICAS SIMBÓLICAS.
-# El código permite calcular tanto la integral indefinida como la definida
-# de una función simbólica y muestra los resultados.
+# ESTE CÓDIGO REALIZA CÁLCULOS DE DERIVADAS DE FUNCIONES SIMBÓLICAS
+# UTILIZANDO LA LIBRERÍA SYMPY PARA MATEMÁTICAS SIMBÓLICAS.
+# El código permite calcular la derivada de una función simbólica
+# con respecto a una variable dada.
 #
 # 2025 / 03 / 03 - V. 1. 0. 0 - SE AGREGAN COMENTARIOS Y ESTRUCTURA AL CÓDIGO
 #
@@ -14,13 +14,13 @@ import sympy as sp
 # Definir la variable simbólica
 x = sp.symbols('x')
 
-# Función a integrar: en este caso, f(x) = sin(x) * exp(x)
-f = sp.sin(x) * sp.exp(x)
+# Función a derivar: en este caso, f(x) = x^2 * sin(x)
+f = x**2 * sp.sin(x)
 
-# Calcular la integral indefinida de la función f(x)
-integral_indefinida = sp.integrate(f, x)
-print(f"Integral indefinida de sin(x) * exp(x): {integral_indefinida}")
+# Calcular la derivada de f(x) con respecto a x
+derivada = sp.diff(f, x)
+print(f"Derivada de x^2 * sin(x) con respecto a x: {derivada}")
 
-# Calcular la integral definida de la función f(x) en el intervalo [0, pi]
-integral_definida = sp.integrate(f, (x, 0, sp.pi))
-print(f"Integral definida de sin(x) * exp(x) de 0 a pi: {integral_definida}")
+# Derivada de una función de segundo orden (segunda derivada)
+segunda_derivada = sp.diff(f, x, 2)
+print(f"Segunda derivada de x^2 * sin(x) con respecto a x: {segunda_derivada}")
