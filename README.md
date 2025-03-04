@@ -1,4 +1,4 @@
-# equipoprogra
+# EquipoProgra
 repositorio para trabajo del curso de programacion
 # integrantes
 alexis david chama lino
