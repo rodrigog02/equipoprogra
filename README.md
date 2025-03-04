@@ -1,4 +1,4 @@
-<h1 align = "center" > EquipoProgra </h1>
+<h1 align = "center" > Equipo Padrinos </h1>
  <p align="center">
   
  </p>
