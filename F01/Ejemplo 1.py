@@ -2,7 +2,7 @@
 
 # Este código define seis variables, dos son ocupadas como datos y cuatro como resultados de operaciones básicas para después imprimirse en la consola con la función print
 # 2025/03/03 - V.1.0.0 se agregan comentarios y encabezado al código
-#Trabajó: Karol Jesus (KJesús28) 
+#Trabajó: Karol Jesus (KJesús28) Y Rodrigo guerrero(rodrigog02)
 #Python permite trabajar con variables sin necesidad de especificar el tipo de dato explícitamente.
 valor1 = 7 #se define valor1 con el valor de 7
 valor2 = 4 #se define valor2 con el valor de 4
