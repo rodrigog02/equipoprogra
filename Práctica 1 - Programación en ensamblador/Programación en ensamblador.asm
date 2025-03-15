@@ -49,3 +49,88 @@ sprite:
 boot:
         ; Inicializa la pila
         MOV SP, stackTop
+
+        ; Imprime mensaje en la pantalla de texto
+        MOV C, hello        ; C apunta a la cadena "Hola Mundo!"
+        MOV D, textDisplay  ; D apunta al inicio de la pantalla de texto
+        CALL printText
+
+        ; Realiza animación en la pantalla gráfica
+        CALL drawSprite
+
+        HLT                 ; Detener ejecución
+
+
+printText:
+        PUSH A
+        PUSH B
+        MOV B, 0
+
+pt_loop:
+        MOVB AL, [C]        ; Leer carácter de la cadena
+        CMPB AL, 0          ; ¿Terminador?
+        JZ pt_done          ; Si es 0, fin del texto
+
+        MOVB [D], AL        ; Escribir carácter en la pantalla
+        INC C
+        INC D
+        JMP pt_loop
+
+pt_done:
+        POP B
+        POP A
+        RET
+
+
+drawSprite:
+        PUSH A
+        PUSH B
+        MOV B, 0            ; Contador de ciclos de animación
+
+animLoop:
+        ; --- Dibuja el sprite en frame0 ---
+        MOV D, frame0       ; Selecciona posición frame0
+        MOV C, sprite       ; C apunta al sprite
+        MOV A, 0x10         ; 16 bytes a copiar
+drawLoop0:
+        MOVB AL, [C]        ; Leer byte del sprite
+        MOVB [D], AL        ; Escribir en la pantalla gráfica
+        INC C
+        INC D
+        DEC A
+        JNZ drawLoop0
+
+        CALL delay_ms       ; Retardo entre frames
+
+        ; --- Dibuja el sprite en frame1 ---
+        MOV D, frame1       ; Selecciona posición frame1
+        MOV C, sprite       ; Reinicia C al inicio del sprite
+        MOV A, 0x10         ; 16 bytes a copiar
+drawLoop1:
+        MOVB AL, [C]
+        MOVB [D], AL
+        INC C
+        INC D
+        DEC A
+        JNZ drawLoop1
+
+        CALL delay_ms       ; Retardo entre frames
+
+        INC B               ; Incrementa contador de ciclos
+        MOV A, B
+        CMP A, 4           ; Realiza 4 ciclos de animación
+        JNZ animLoop
+
+        POP B
+        POP A
+        RET
+
+
+delay_ms:
+        PUSH A
+        MOV A, 0xFF
+delay_loop:
+        DEC A
+        JNZ delay_loop
+        POP A
+        RET
