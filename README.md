@@ -2,7 +2,7 @@
  <p align="center">
   
  </p>
-Repositorio para trabajo del curso de programacion <br>
+-Repositorio para trabajo del curso de programacion- <br>
 Miebros del Equipo: <br> 
 Karol Jesús Ramirez Cruz <br>
 Alexis David Chama Lino <br>
